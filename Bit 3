@@ -1,0 +1,26 @@
+#include <iostream>
+using namespace std;
+
+// Функция для подсчета количества единиц в двоичном представлении числа
+int countOnes(unsigned int num) {
+    int count = 0;
+    while (num) {
+        count += num & 1; // Увеличиваем счетчик, если младший бит равен 1
+        num >>= 1; // Сдвигаем число вправо на один бит
+    }
+    return count;
+}
+
+int main() {
+    unsigned int num;
+
+    // Ввод числа с клавиатуры
+    cout << "Введите целое положительное число: ";
+    cin >> num;
+
+    // Подсчет и вывод количества единиц в двоичном представлении числа
+    int result = countOnes(num);
+    cout << "Количество единиц в двоичном представлении числа: " << result << endl;
+
+    return 0;
+}
