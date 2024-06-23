@@ -1,0 +1,33 @@
+#include <iostream>
+using namespace std;
+
+// Функция для вывода двоичного представления числа
+void printBinary(unsigned int num) {
+    bool leadingZero = true;
+    for (int i = 31; i >= 0; --i) {
+        if ((num >> i) & 1) {
+            leadingZero = false;
+        }
+        if (!leadingZero) {
+            cout << ((num >> i) & 1);
+        }
+    }
+    if (leadingZero) {
+        cout << "0";
+    }
+    cout << endl;
+}
+
+int main() {
+    unsigned int num;
+
+    // Ввод числа с клавиатуры
+    cout << "Введите целое положительное число: ";
+    cin >> num;
+
+    // Вывод двоичного представления числа
+    cout << "Двоичное представление числа: ";
+    printBinary(num);
+
+    return 0;
+}
